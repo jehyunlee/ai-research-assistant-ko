@@ -28,6 +28,7 @@ import { ErrorStep } from "./steps/ErrorStep"
 import { Run } from "openai/resources/beta/threads/runs/runs"
 import { AssistantStreamEvent } from "openai/resources/beta/assistants"
 import { generateMessageId } from "../../../utils/identifiers"
+import { getString } from "../../../utils/locale"
 import {
   BotMessageContent,
   UserMessageContent,
@@ -560,7 +561,7 @@ export const BotMessage = memo(function BotMessageContent({
                         </div> */}
                         {error ? (
                           <div className="text-xs text-red-500">
-                            Failed to submit feedback
+                            {getString("message-bot-feedback-failed")}
                           </div>
                         ) : null}
                       </div>

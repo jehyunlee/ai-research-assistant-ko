@@ -18,6 +18,7 @@ import { ReadOnlyBufferWindowMemory } from '../utils/memory'
 import { SimplifiedStates, serializeStates, States } from '../utils/states'
 import { OutputActionParser } from '../utils/lcParsers'
 import * as zot from '../../apis/zotero'
+import { getString } from '../../utils/locale'
 
 const VISION_DEFAULT_PROMPT = ChatPromptTemplate.fromPromptMessages([
   SystemMessagePromptTemplate.fromTemplate(
@@ -76,7 +77,7 @@ export class VisionChain extends BaseChain {
       llmKwargs: {
         // TODO: Put chain metadata here until it is officially supported
         key: 'vision-chain',
-        title: '🛠️ Performing visual analysis',
+        title: getString('chain-vision-title'),
       } as any,
       // outputParser,
       callbackManager: this.langChainCallbackManager,

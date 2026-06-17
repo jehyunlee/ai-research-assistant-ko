@@ -3,6 +3,7 @@ import { marked } from "marked"
 import { BotMessageProps } from "../../../typings/legacyMessages"
 import { Square2StackIcon } from "@heroicons/react/24/outline"
 import { copyButtonDef } from "./types"
+import { getString } from "../../../utils/locale"
 
 interface CopyButtonProps extends copyButtonDef {
   copyId: BotMessageProps["copyId"]
@@ -27,7 +28,7 @@ export function CopyButton({
       <button
         type="button"
         className="relative inline-flex items-center bg-white text-neutral-500 hover:bg-gray-200 focus:z-10 rounded border-none px-2 py-1"
-        aria-label="Copy"
+        aria-label={getString("button-copy")}
         onClick={handleCopy}
       >
         <Square2StackIcon
@@ -35,7 +36,7 @@ export function CopyButton({
           aria-hidden="true"
         />
         <span className="ml-2 text-sm">
-          {copyId === id ? "Copied" : "Copy"}
+          {copyId === id ? getString("button-copy-copied") : getString("button-copy")}
         </span>
       </button>
     </div>

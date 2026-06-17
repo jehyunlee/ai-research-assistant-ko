@@ -16,6 +16,7 @@ import { action as log } from "../../../../utils/loggers"
 import { SearchActionStepContent } from "../../../../typings/steps"
 import { getItemsAndIndexAttachments } from "../../../../apis/zotero/item"
 import { useAssistant } from "../../../../hooks/useAssistant"
+import { getString } from "../../../../utils/locale"
 
 interface FileActionProps {
   content: FileActionStepContent
@@ -140,7 +141,7 @@ export const FileAction = memo(function FileActionComponent({
             className="border-none bg-transparent m-0 p-0 text-black align-middle text-lg"
             style={{ textDecorationLine: "none" }}
           >
-            Taking action <span className="font-bold mr-4">Upload Files</span>
+            {getString("action-taking-action")} <span className="font-bold mr-4">{getString("action-upload-files")}</span>
             {uploadStatus ? <FileStatus status={uploadStatus} /> : ""}
             {uploadExpanded ? (
               <ChevronUpIcon className="h-6 w-6 align-middle" />
@@ -182,8 +183,8 @@ export const FileAction = memo(function FileActionComponent({
             className="border-none bg-transparent m-0 p-0 text-black align-middle text-lg"
             style={{ textDecorationLine: "none" }}
           >
-            Taking action{" "}
-            <span className="font-bold mr-4">Create Vector Index</span>
+            {getString("action-taking-action")}{" "}
+            <span className="font-bold mr-4">{getString("action-create-vector-index")}</span>
             {indexStatus ? <FileStatus status={indexStatus} /> : ""}
             {indexExpanded ? (
               <ChevronUpIcon className="h-6 w-6 align-middle" />

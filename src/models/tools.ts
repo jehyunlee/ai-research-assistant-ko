@@ -4,19 +4,20 @@ import { suggestTags, suggestCreators } from "../apis/zotero/suggest"
 import { countBy, orderBy } from "lodash"
 import stringify from "json-stringify-pretty-compact"
 import { search } from "../apis/zotero/search"
+import { getString } from "../utils/locale"
 
 export const tools = {
   search_tag: {
-    title: "Search Tags",
-    description: "Searched tags in your Zotero library using the following queries:"
+    get title() { return getString("tool-search-tag-title") },
+    get description() { return getString("tool-search-tag-desc") },
   },
   search_creator: {
-    title: "Search Creators",
-    description: "Searched creators (authors, editors etc.) in your Zotero library using the following queries:"
+    get title() { return getString("tool-search-creator-title") },
+    get description() { return getString("tool-search-creator-desc") },
   },
   search_item: {
-    title: "Search Items",
-    description: "Searched items in your Zotero library using the following conditions:"
+    get title() { return getString("tool-search-item-title") },
+    get description() { return getString("tool-search-item-desc") },
   }
 }
 

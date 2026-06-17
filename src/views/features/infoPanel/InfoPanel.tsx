@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { ButtonGroup } from '../../components/buttons/ButtonGroup'
+import { getString } from '../../../utils/locale'
 
 interface InfoPanelProps {
   promptLibrary: JSX.Element
@@ -11,13 +12,13 @@ export function InfoPanel({ promptLibrary, faq }: InfoPanelProps) {
   const groups = [
     {
       key: 'promptLibrary',
-      label: 'Prompt Library',
+      label: getString('infopanel-tab-prompt-library'),
       component: promptLibrary,
       onClick: () => setSelected('promptLibrary'),
     },
     {
       key: 'faq',
-      label: 'FAQ',
+      label: getString('infopanel-tab-faq'),
       component: faq,
       onClick: () => setSelected('faq'),
     },

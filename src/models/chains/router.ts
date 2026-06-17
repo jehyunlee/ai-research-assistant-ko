@@ -18,6 +18,7 @@ import { create } from 'domain'
 import { CallbackManager, CallbackManagerForChainRun } from 'langchain/callbacks'
 import { ClarificationActionResponse, RoutingActionResponse, ExecutorActionResponse } from '../utils/actions'
 import { OutputActionParser } from '../utils/lcParsers'
+import { getString } from '../../utils/locale'
 import { serializeStates } from '../utils/states'
 
 const OPENAI_API_KEY = (Zotero.Prefs.get(`${config.addonRef}.OPENAI_API_KEY`) as string) || 'YOUR_OPENAI_API_KEY'
@@ -204,7 +205,7 @@ export const createRouter = ({
       function_call: { name: 'routing' },
       // TODO: Put chain metadata here until it is officially supported
       key: 'router-chain',
-      title: '🚀 Routing Your Request',
+      title: getString('chain-router-title'),
     } as any,
     outputParser,
     outputKey: 'output',

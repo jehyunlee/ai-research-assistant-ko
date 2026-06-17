@@ -20,6 +20,7 @@ import { DEFAULT_BIB_STYLE } from "../../../../utils/constants"
 import { SearchActionResponse } from "../../../../models/utils/actions"
 import * as zot from "../../../../apis/zotero"
 import { isEmpty, cloneDeep, set } from "lodash"
+import { getString } from "../../../../utils/locale"
 import {
   SearchActionStepControl,
   QueryType,
@@ -135,7 +136,7 @@ export function SearchAction({
         className="border-none bg-transparent m-0 p-0 text-black align-middle text-lg"
         style={{ textDecorationLine: "none" }}
       >
-        Taking action <span className="font-bold">Search Zotero Library</span>
+        {getString("action-taking-action")} <span className="font-bold">{getString("action-search-zotero-library")}</span>
         {status === "COMPLETED" ? (
           expanded ? (
             <ChevronUpIcon className="h-6 w-6 align-middle" />
@@ -155,7 +156,7 @@ export function SearchAction({
           ref={ref}
           className="px-6 py-4 rounded-md bg-white text-base my-1 sm:max-w-[85%]"
         >
-          <div>Searched items in your Zotero library</div>
+          <div>{getString("action-searched-items")}</div>
           <div className="max-h-60 overflow-auto">
             <CodeHighlighter
               code={stringify(query)}
@@ -166,13 +167,13 @@ export function SearchAction({
           {status === "COMPLETED" ? (
             output ? (
               <div>
-                Found {output.count} {output.count > 1 ? "items." : "item."}
+                {getString("action-found-items", { args: { count: output.count } })}
               </div>
             ) : (
-              <div>No items found</div>
+              <div>{getString("action-no-items-found")}</div>
             )
           ) : (
-            <div>Waiting for response...</div>
+            <div>{getString("common-waiting-response")}</div>
           )}
         </div>
       </CSSTransition>

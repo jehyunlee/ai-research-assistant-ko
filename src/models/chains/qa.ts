@@ -13,6 +13,7 @@ import {
 import { ChainValues } from 'langchain/schema'
 import retry, { Options } from 'async-retry'
 import { config } from '../../../package.json'
+import { getString } from '../../utils/locale'
 import { ClarificationActionResponse, ErrorActionResponse, QAActionResponse } from '../utils/actions'
 import { ZoteroCallbacks } from '../utils/callbacks'
 import { ReadOnlyBufferWindowMemory } from '../utils/memory'
@@ -148,7 +149,7 @@ export class QAChain extends BaseChain {
         function_call: { name: 'qa' },
         // TODO: Put chain metadata here until it is officially supported
         key: 'qa-chain',
-        title: '📖 Generating the reply',
+        title: getString('chain-qa-title'),
       } as any,
       outputParser,
       callbackManager: this.langChainCallbackManager,

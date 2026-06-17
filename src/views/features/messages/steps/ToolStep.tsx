@@ -7,6 +7,7 @@ import { runFunctionTool } from "../../../../models/tools"
 import { CodeHighlighter } from "../../../components/code/CodeHighlighter"
 import { tools } from "../../../../models/tools"
 import { CSSTransition } from "react-transition-group"
+import { getString } from "../../../../utils/locale"
 
 export interface ToolStepProps {
   content: ToolStepContent
@@ -86,7 +87,7 @@ export function ToolStep({ content, control }: ToolStepProps) {
           </div>
           {status === "COMPLETED" ? (
             <>
-              <div>The following response was used:</div>
+              <div>{getString("step-tool-response-used")}</div>
               <div className="max-h-60 overflow-auto">
                 <pre
                   className="bg-amber-50 p-2"
@@ -97,7 +98,7 @@ export function ToolStep({ content, control }: ToolStepProps) {
               </div>
             </>
           ) : (
-            <div>Waiting for response...</div>
+            <div>{getString("common-waiting-response")}</div>
           )}
         </div>
       </CSSTransition>

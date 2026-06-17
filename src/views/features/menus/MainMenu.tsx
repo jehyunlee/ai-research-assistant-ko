@@ -10,6 +10,7 @@ import { Message } from "../../../typings/legacyMessages"
 import { useDragging } from "../../../hooks/useDragging"
 import { useZoom } from "../../../hooks/useZoom"
 import { useAssistant } from "../../../hooks/useAssistant"
+import { getString } from "../../../utils/locale"
 
 interface ScaleButtonGroupProps {
   scale: number
@@ -26,7 +27,7 @@ function ScaleButtonGroup({
 }: ScaleButtonGroupProps) {
   return (
     <div className="px-4 py-2 flex flex-row">
-      <div>Zoom:</div>
+      <div>{getString("menu-zoom-label")}</div>
       <div className="h-5 inline-flex rounded-md shadow-sm">
         <MinusCircleIcon
           className="opacity-50 hover:opacity-90 w-full"
@@ -73,7 +74,7 @@ export function MainMenu({
   const items = [
     {
       type: "BUTTON" as const,
-      label: dialog.mode === "NORMAL" ? "Minimize window" : "Restore window",
+      label: dialog.mode === "NORMAL" ? getString("menu-minimize") : getString("menu-restore"),
       handleClick: () => {
         if (dialog.mode === "NORMAL") {
           dialog.minimize()
@@ -89,7 +90,7 @@ export function MainMenu({
     },
     {
       type: "COMPONENT" as const,
-      label: "Zoom",
+      label: getString("menu-zoom"),
       Component: ScaleButtonGroup,
       props: {
         scale: zoom.scale,
@@ -104,19 +105,19 @@ export function MainMenu({
     },
     {
       type: "BUTTON" as const,
-      label: "Save chat history",
+      label: getString("menu-save-chat"),
       disabled: messages.length === 0,
       handleClick: async () => await chatHistoryToNote(messages),
     },
     {
       type: "BUTTON" as const,
-      label: "Clear chat history",
+      label: getString("menu-clear-chat"),
       disabled: messages.length === 0,
       handleClick: () => {
         setConfirmationOpen(true)
         setConfirmationMessage(
           <div className="py-4">
-            This will delete your current chat history. Continue?
+            {getString("menu-confirm-clear-chat")}
           </div>,
         )
         setConfirmationCallback(() => () => {
@@ -128,13 +129,12 @@ export function MainMenu({
     },
     {
       type: "BUTTON" as const,
-      label: "Rebuild file cache",
+      label: getString("menu-rebuild-file-cache"),
       handleClick: () => {
         setConfirmationOpen(true)
         setConfirmationMessage(
           <div className="py-4">
-            File cache speeds up Q&A responses. Rebuilding it can take a while.
-            Continue?
+            {getString("menu-confirm-rebuild-cache")}
           </div>,
         )
         setConfirmationCallback(
@@ -147,13 +147,12 @@ export function MainMenu({
     },
     {
       type: "BUTTON" as const,
-      label: "Clear file index",
+      label: getString("menu-clear-file-index"),
       handleClick: () => {
         setConfirmationOpen(true)
         setConfirmationMessage(
           <div className="py-4">
-            This will delete all uploaded files and remove them from vector
-            indexes. Continue?
+            {getString("menu-confirm-clear-file-index")}
           </div>,
         )
         setConfirmationCallback(
@@ -166,7 +165,7 @@ export function MainMenu({
     },
     {
       type: "BUTTON" as const,
-      label: "Feedback",
+      label: getString("menu-feedback"),
       handleClick: () => {
         Zotero.launchURL(
           `https://github.com/lifan0127/ai-research-assistant/issues`,
@@ -175,7 +174,7 @@ export function MainMenu({
     },
     {
       type: "BUTTON" as const,
-      label: "Close",
+      label: getString("menu-close"),
       handleClick: () => {
         dialog.close()
       },

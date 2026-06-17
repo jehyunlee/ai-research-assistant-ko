@@ -19,6 +19,7 @@ import {
 import { TextField } from "../input/TextField"
 import { UserMessageContent } from "../../../typings/messages"
 import { message as log } from "../../../utils/loggers"
+import { getString } from "../../../utils/locale"
 
 interface SelectionToggleProps {
   name: StateName
@@ -254,7 +255,7 @@ export const UserMessage = memo(function UserMessageContent({
                   <button
                     type="button"
                     className="relative inline-flex items-center bg-transparent hover:bg-red-800 focus:z-10 border-none px-2 py-1 rounded"
-                    aria-label="Copy"
+                    aria-label={getString("button-copy")}
                     onClick={handleCopy}
                   >
                     <Square2StackIcon
@@ -262,7 +263,7 @@ export const UserMessage = memo(function UserMessageContent({
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm text-white">
-                      {isCopied ? "Copied" : "Copy"}
+                      {isCopied ? getString("button-copy-copied") : getString("button-copy")}
                     </span>
                   </button>
                 </div>
@@ -270,14 +271,14 @@ export const UserMessage = memo(function UserMessageContent({
                   <button
                     type="button"
                     className="relative inline-flex items-center bg-transparent hover:bg-red-800 focus:z-10 border-none px-2 py-1 rounded"
-                    aria-label="Edit"
+                    aria-label={getString("message-user-edit")}
                     onClick={handleEdit}
                   >
                     <PencilSquareIcon
                       className="w-5 h-5 text-white"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm text-white">Edit</span>
+                    <span className="ml-2 text-sm text-white">{getString("message-user-edit")}</span>
                   </button>
                 </div>
               </div>

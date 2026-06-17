@@ -18,6 +18,7 @@ import { BaseChatMemory, BufferWindowMemory } from 'langchain/memory'
 import { config } from '../../../package.json'
 import { ReadOnlyBufferWindowMemory } from '../utils/memory'
 import { OutputActionParser } from '../utils/lcParsers'
+import { getString } from '../../utils/locale'
 import { ClarificationActionResponse, ErrorActionResponse, SearchActionResponse } from '../utils/actions'
 import { ZoteroCallbacks } from '../utils/callbacks'
 import { SimplifiedStates, serializeStates } from '../utils/states'
@@ -215,7 +216,7 @@ export class SearchChain extends BaseChain {
         // qwen reserve 'search' word for other usage. Ref: PR[#112]
         // TODO: Put chain metadata here until it is officially supported
         key: 'search-chain',
-        title: '🛠️ Building search query',
+        title: getString('chain-search-title'),
       } as any,
       outputParser,
       callbackManager: this.langChainCallbackManager,

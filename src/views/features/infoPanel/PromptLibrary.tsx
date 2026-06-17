@@ -11,31 +11,32 @@ import {
 import { selectionConfig } from "../../../models/utils/states"
 import { useOutsideClick } from "../../../hooks/useOutsideClick"
 import { LinkButton } from "../../components/buttons/LinkButton"
+import { getString } from "../../../utils/locale"
 
 const prompts = [
   {
     icon: MagnifyingGlassIcon,
-    title: "Search your library",
+    get title() { return getString("prompt-search-library") },
     template: `Show me the papers related to # since ${new Date().getFullYear() - 1}.`,
   },
   {
     icon: QuestionMarkCircleIcon,
-    title: "Ask a question",
+    get title() { return getString("prompt-ask-question") },
     template: "According to ^, what are the latest studies on #?",
   },
   {
     icon: ListBulletIcon,
-    title: "Summarize a paper",
+    get title() { return getString("prompt-summarize-paper") },
     template: "Summarize / in a few sentences.",
   },
   {
     icon: AcademicCapIcon,
-    title: "Analyse a researcher",
+    get title() { return getString("prompt-analyse-researcher") },
     template: "What are the research areas of @?",
   },
   {
     icon: ArrowsRightLeftIcon,
-    title: "Compare two papers",
+    get title() { return getString("prompt-compare-papers") },
     template: "Compare / and / in 2-3 sentences.",
   },
 ]

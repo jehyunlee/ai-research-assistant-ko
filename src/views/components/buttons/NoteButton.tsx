@@ -10,6 +10,7 @@ import {
 } from "../../../typings/legacyMessages"
 import { useOutsideClick } from "../../../hooks/useOutsideClick"
 import { noteButtonDef } from "./types"
+import { getString } from "../../../utils/locale"
 import { createStandaloneNote, createChildNote } from "../../../apis/zotero"
 
 interface NoteButtonProps extends noteButtonDef {
@@ -45,14 +46,14 @@ export function NoteButton({ utils, input, states }: NoteButtonProps) {
           ref={ref}
           type="button"
           className="relative inline-flex items-center bg-white text-neutral-500 hover:bg-gray-200 focus:z-10 rounded border-none px-2 py-1"
-          aria-label="Note"
+          aria-label={getString("button-note")}
           onClick={handleOpen}
         >
           <DocumentTextIcon
             className="w-5 h-5 text-neutral-500"
             aria-hidden="true"
           />
-          <span className="ml-2 text-sm">Note</span>
+          <span className="ml-2 text-sm">{getString("button-note")}</span>
           {open ? (
             <MinusIcon
               className="ml-2 w-4 h-4 text-neutral-500"

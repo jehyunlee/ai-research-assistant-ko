@@ -10,6 +10,7 @@ import {
 } from "../../../typings/legacyMessages"
 import { useOutsideClick } from "../../../hooks/useOutsideClick"
 import { annotationButtonDef } from "./types"
+import { getString } from "../../../utils/locale"
 import { updateAnnotation } from "../../../apis/zotero"
 
 interface AnnotateButtonProps extends annotationButtonDef {
@@ -52,7 +53,7 @@ export function AnnotateButton({ utils, input, states }: AnnotateButtonProps) {
   //           onClick={() => annotate(annotations[0].id as string)}
   //         >
   //           <PencilSquareIcon className="w-5 h-5 text-neutral-500" aria-hidden="true" />
-  //           <span className="ml-2 text-sm">Annotate</span>
+  //           <span className="ml-2 text-sm">{getString("button-annotate-text")}</span>
   //         </button>
   //       </div>
   //     </div>
@@ -66,14 +67,14 @@ export function AnnotateButton({ utils, input, states }: AnnotateButtonProps) {
           ref={ref}
           type="button"
           className="relative inline-flex items-center bg-white text-neutral-500 hover:bg-gray-200 focus:z-10 rounded border-none px-2 py-1"
-          aria-label="Annotation"
+          aria-label={getString("button-annotate")}
           onClick={handleOpen}
         >
           <PencilSquareIcon
             className="w-5 h-5 text-neutral-500"
             aria-hidden="true"
           />
-          <span className="ml-2 text-sm">Annotate</span>
+          <span className="ml-2 text-sm">{getString("button-annotate-text")}</span>
           {open ? (
             <MinusIcon
               className="ml-2 w-4 h-4 text-neutral-500"

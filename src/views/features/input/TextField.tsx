@@ -18,6 +18,7 @@ import { prefixes, parsePromptTemplate } from "../infoPanel/PromptLibrary"
 import { LinkButton } from "../../components/buttons/LinkButton"
 import { PromptList } from "../infoPanel/PromptLibrary"
 import { INPUT_CHARACTER_LIMIT } from "../../../utils/constants"
+import { getString } from "../../../utils/locale"
 
 const editStyles = {
   control: {
@@ -406,9 +407,9 @@ export const TextField = forwardRef<Ref, TextFieldProps>(
           onKeyDown={handleKeyDown}
           ref={mentionRef}
           inputRef={ref}
-          placeholder="Ask a question or reference @author, #tag, /document or ^collection."
+          placeholder={getString("chat-input-placeholder")}
           style={isEdit ? editStyles : displayStyle}
-          a11ySuggestionsListLabel={"Suggested Zotero entities for mention"}
+          a11ySuggestionsListLabel={getString("chat-input-mention-suggestions-label")}
           allowSuggestionsAboveCursor={true}
           forceSuggestionsAboveCursor={forceSuggestionsAboveCursor}
           allowSpaceInQuery={true}
@@ -477,7 +478,7 @@ export const TextField = forwardRef<Ref, TextFieldProps>(
                     <button
                       type="button"
                       className="relative inline-flex items-center bg-white hover:bg-gray-200 focus:z-10 border-none p-1 rounded-full mr-2"
-                      aria-label="Cancel"
+                      aria-label={getString("chat-input-cancel")}
                       onClick={handleCancel}
                     >
                       <XMarkIcon
@@ -488,7 +489,7 @@ export const TextField = forwardRef<Ref, TextFieldProps>(
                     <button
                       type="button"
                       className="relative inline-flex items-center bg-white hover:bg-gray-200 focus:z-10 border-none p-1 rounded-full"
-                      aria-label="Confirm"
+                      aria-label={getString("chat-input-confirm")}
                       onClick={handleConfirm}
                     >
                       <CheckIcon
