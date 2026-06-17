@@ -1,0 +1,16 @@
+pref-enable =
+    .label = 활성화
+pref-model-configuration = 모델 설정
+pref-openai-model = OpenAI 모델
+pref-openai-api-key = OpenAI API 키
+pref-openai-base-url = OpenAI API 베이스 URL
+pref-ui-customization = UI 사용자 지정
+pref-default-zoom-level = 기본 확대/축소 레벨
+pref-keyboard-shortcut = 키보드 단축키
+pref-shortcut-modifier = 단축키 보조키
+pref-shortcut-key = 단축키
+pref-feedback-submission = 피드백 제출
+pref-feedback-no-confirmation =
+    .label = 추가 확인 팝업 없이 바로 피드백 제출
+pref-user-email = 사용자 이메일
+pref-help = { $name } 빌드 { $version } ({ $time })

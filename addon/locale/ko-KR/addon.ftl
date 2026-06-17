@@ -1,0 +1,13 @@
+startup-begin = 애드온 로딩 중
+startup-finish = 애드온 준비 완료
+menuitem-label = Aria: 도우미 예시
+menupopup-label = Aria: 메뉴 팝업
+menuitem-submenulabel = Aria
+menuitem-filemenulabel = Aria: 파일 메뉴 항목
+prefs-title = Aria
+prefs-table-title = 제목
+prefs-table-detail = 상세
+tabpanel-lib-tab-label = 라이브러리 탭
+tabpanel-reader-tab-label = 리더 탭
+dialog =
+  .title = Aria: AI 연구 어시스턴트
